@@ -68,47 +68,51 @@ Obtiene el histórico de precios para un símbolo específico en un mercado dete
 
 - **Devuelve:** Una lista de objetos JSON con el histórico de precios para el símbolo especificado.
 
+
+
+
 ## Ejemplo de Uso
+
+El siguiente ejemplo demuestra cómo utilizar la librería iol_py para interactuar con la API de Invertir Online:
 
 ```python
 from iol_py_package_joseph0001.iol_py import IOL
 from dotenv import load_dotenv
 load_dotenv()
+import os
 
-
-    try:
-        # Obtener las credenciales desde las variables de entorno
-        usuario = os.environ.get('USUARIO')
-        clave = os.environ.get('CLAVE')
-
-        # Crear una instancia de la clase IOL con las credenciales obtenidas
-        iol = IOL(usuario, clave)
-
-        # Obtener el estado de cuenta
-        print("Estado de cuenta actual:")
-        iol.obtener_estado_de_cuenta()
-
-        # Obtener el portafolio en Argentina
-        print("\nObteniendo datos del portafolio en Argentina:")
-        df_portafolio = iol.mi_portafolio()
-        if df_portafolio is not None:
-            print(df_portafolio)
-
-        # Obtener las operaciones
-        print("\nObteniendo operaciones:")
-        df_operaciones = iol.mis_operaciones()
-        if df_operaciones is not None:
-            print(df_operaciones)
-
-        # Obtener datos históricos de precios
-        print("\nObteniendo datos históricos de precios:")
-        hist_precios = iol.hist_precio(simbolo='GGAL', desde='2020-01-01', hasta='2021-01-01')
-        if hist_precios is not None:
-            print(hist_precios)
-
-    except Exception as e:
-        print(f"Error general: {e}")
+try:
+    # Obtener las credenciales desde las variables de entorno
+    usuario = os.environ.get('USUARIO')
+    clave = os.environ.get('CLAVE')
+    # Crear una instancia de la clase IOL con las credenciales obtenidas
+    iol = IOL(usuario, clave)
+    # Obtener el estado de cuenta
+    print("Estado de cuenta actual:")
+    iol.obtener_estado_de_cuenta()
+    # Obtener el portafolio en Argentina
+    print("\nObteniendo datos del portafolio en Argentina:")
+    df_portafolio = iol.mi_portafolio()
+    if df_portafolio is not None:
+        print(df_portafolio)
+    # Obtener las operaciones
+    print("\nObteniendo operaciones:")
+    df_operaciones = iol.mis_operaciones()
+    if df_operaciones is not None:
+        print(df_operaciones)
+    # Obtener datos históricos de precios
+    print("\nObteniendo datos históricos de precios:")
+    hist_precios = iol.hist_precio(simbolo='GGAL', desde='2020-01-01', hasta='2021-01-01')
+    if hist_precios is not None:
+        print(hist_precios)
+except Exception as e:
+    print(f"Error general: {e}")
 ```
+
+## Descargo de responsabilidad
+
+iol_py es una librería no oficial y no está respaldada ni asociada de ninguna manera con INVERTIR ONLINE o cualquier organización relacionada. Antes de usar este paquete, asegúrese de leer y comprender los términos de servicio de la API subyacente. Los autores de esta librería no aceptan responsabilidad alguna por cualquier daño que pudiera derivarse de su uso. Consulte el archivo de LICENCIA para más detalles.
+
 
 ## Contribución
 

@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "iol_py_package_joseph0001"
-version = "0.0.1"
+version = "0.0.3"
 authors = [
   { name="José Florentino Ramos", email="joseph0001@gmail.com" },
 ]
